@@ -1,6 +1,5 @@
 name: Publish site from main/source
 
-# whenever you push to main, rebuild Pages
 on:
   push:
     branches:
@@ -14,14 +13,12 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      # Use the official 'pages' action to publish from ./source
       - name: Publish to GitHub Pages
         uses: actions/configure-pages@v3
 
       - name: Upload artifacts from source folder
         uses: actions/upload-pages-artifact@v1
         with:
-          # point to your folder
           path: source/
 
       - name: Deploy to GitHub Pages
