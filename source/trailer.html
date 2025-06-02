@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <title>HezekFX</title>
+    
+    <meta name="author" content="Platol" />
+    <meta name="description" content="TailwindCSS Personal Portfolio Template" />
+    <meta property="og:title" content="Aver - TailwindCSS Personal Portfolio Template" />
+    <meta property="og:description" content="TailwindCSS Personal Portfolio Template" />
+    <meta property="og:image" content="./images/ogimage.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:title" content="Aver - TailwindCSS Personal Portfolio Template" />
+    <meta name="twitter:image" content="./images/ogimage.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="TailwindCSS Personal Portfolio Template" />
+    
+    <link rel="shortcut icon" href="./images/hezekfx-square-logo.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="./plugins/aos/aos.css">
+    <link rel="stylesheet" href="./styles/output.css">
+  </head>
+
+  <style>
+    .video-carousel {
+      position: relative;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 90vw; /* Responsive width */
+    }
+  
+    .video-slide {
+      display: none;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9; /* Modern aspect ratio control */
+    }
+  
+    .video-slide.active {
+      display: block;
+    }
+  
+    .aspect-ratio-box {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+  
+    .aspect-ratio-box iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .carousel-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.1);
+    }
+  
+    .carousel-button.prev {
+      left: -50px;
+    }
+  
+    .carousel-button.next {
+      right: -50px;
+    }
+  
+    @media (max-width: 768px) {
+      .video-carousel {
+        width: 95vw;
+      }
+      
+      .carousel-button {
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.3);
+      }
+      
+      .carousel-button.prev {
+        left: -30px;
+      }
+      
+      .carousel-button.next {
+        right: -30px;
+      }
+    }
+  </style>
+
+  
+  <body>
+    <!-- start of header -->
+    <header class="fixed top-0 z-[9000] w-full header [&.invisible]:-translate-y-full">
+      <div class="container">
+        <div class="flex justify-between py-6 items-center relative">
+          <!-- logo -->
+          <div class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:-translate-x-8 w-1/4 transition-all duration-300">
+            <a class="inline-block align-middle" href="./index.html">
+              <img
+                alt="HezekFX"
+                width="160"
+                height="40"
+                src="./images/hezekfx-logo-white.png"
+              />
+            </a>
+          </div>
+
+          <!-- navbar -->
+          <nav class="navbar">
+            <span class="indicator"></span>
+            <a href="./index.html">Home</a>
+            <a href="./about.html">About</a>
+            <a class="active" href="./project.html">Project</a>
+            <!-- <a href="./blog.html">Blog</a> -->
+            <a href="./contact.html">Contact</a>
+          </nav>
+          <div class="navOverlay"></div>
+
+          <!-- toggle mobile-nav -->
+          <button type="button" aria-label="Toggle Mobile Navigation" class="navToggler">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M4 8l16 0"></path>
+              <path d="M4 16l16 0"></path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M18 6l-12 12"></path>
+              <path d="M6 6l12 12"></path>
+            </svg>
+          </button>
+
+          <!-- social links -->
+          <div
+            class="hideOnScroll lg:[&.scrolled]:opacity-0 lg:[&.scrolled]:translate-x-8 w-1/4 transition-all duration-300 text-right text-sm hidden lg:block"
+          >
+            <span class="block text-white/75 mb-1">Social Links:</span>
+            <ul class="inline-flex gap-x-4">
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+              <a href="https://www.linkedin.com/in/ethanhezek/" class="link">LinkedIn</a>
+              </li>
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+              <a href="https://www.youtube.com/@Hezeeek" class="link">YouTube</a>
+              </li>
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+              <a href="https://www.tiktok.com/@hezeeek" class="link">TikTok</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end of header -->
+
+    <!-- start of main -->
+    <main class="bg-dark relative z-10 pt-[92px] lg:pt-[106px] min-h-[82vh] overflow-hidden">
+      <!-- Video Portfolio Section -->
+
+      <section class="banner bg-dark">
+        <div class="pt-20 pb-24 page-banner bg-dark rounded-b-2xl relative z-10">
+          <div class="container">
+            <div class="row items-end" data-aos="fade">
+              <div class="sm:col-8 text-center sm:text-left">
+                <h1 class="text-[2.5rem] leading-[3rem] sm:leading-9 md:text-5xl font-secondary font-medium -mt-[6px] text-center sm:text-left mb-6 sm:mb-8">Trailers</h1>
+                <nav aria-label="breadcrumb">
+                  <ul class="flex items-center justify-center sm:justify-start [&>*:last-child]:pointer-events-none">
+                    <li>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-3" style="transform:rotateY(180deg)">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2"></path>
+                        <path d="M19 12h2l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h5.5"></path>
+                        <path d="M16 19h6"></path>
+                        <path d="M19 16l3 3l-3 3"></path>
+                      </svg>
+                    </li>
+                    <li>
+                      <a class="link" href="./project.html">Projects</a>
+                    </li>
+                    <li><span class="px-4">•</span></li>
+                    <li>
+                      <a class="link" href="./index.html">Trailers</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+              <div class="sm:col-4 block mt-6 sm:mt-0 text-center sm:text-right">
+                <span class="font-secondary text-2xl leading-none text-white/75">Works</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-28 bg-dark text-white rounded-b-2xl" data-aos="fade-in">
+        <div class="container">
+          <div class="video-carousel">
+            <!-- Video Slides -->
+            <div class="video-slide active">
+              <div class="aspect-ratio-box">
+                <iframe src="https://www.youtube.com/embed/yrAA-vpUzJA?si=uQB3JdOwVgSU8bK_" 
+                        allowfullscreen 
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+              </div>
+            </div>
+      
+            <div class="video-slide">
+              <div class="aspect-ratio-box">
+                <iframe src="https://www.youtube.com/embed/Mpz21YmZ6uE?si=z7hj3SM0q-j32WqR" 
+                        allowfullscreen 
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+              </div>
+            </div>
+      
+            <div class="video-slide">
+              <div class="aspect-ratio-box">
+                <iframe src="https://www.youtube.com/embed/zChlSdS_pho?si=uuPt9sLs7CGqD1pI" 
+                        allowfullscreen 
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                </iframe>
+              </div>
+            </div>
+      
+            <!-- Navigation Buttons with SVG arrows -->
+            <button class="carousel-button prev" aria-label="Previous video">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+            <button class="carousel-button next" aria-label="Next video">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    <!-- end of main -->
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.video-slide');
+        const prevButton = document.querySelector('.carousel-button.prev');
+        const nextButton = document.querySelector('.carousel-button.next');
+        let currentSlide = 0;
+    
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+          });
+        }
+    
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+        }
+    
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(currentSlide);
+        }
+    
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+        
+        // Optional: Add keyboard navigation
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') prevSlide();
+          if (e.key === 'ArrowRight') nextSlide();
+        });
+      });
+    </script>
+
+    <!-- ================= start of footer ================= -->
+    <footer class="pt-28 pb-20 sticky bottom-0 z-[1]">
+      <div class="mb-16 overflow-hidden">
+        <a class="footer-cta block text-4xl md:text-5xl font-secondary font-medium mb-8" href="contact.html">
+          <!-- Scrolling Line 1 -->
+          <div class="animated-line animated-line-one mb-5">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+          <!-- Scrolling Line 2 -->
+          <div class="animated-line animated-line-two">
+            <div class="line-block">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+            <div class="line-block-copy">
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+              <span class="mr-20 md:mr-24">
+                <span class="cta-text">Let’s make something</span>
+                <img alt="arrow-right" loading="lazy" width="39" height="31" class="inline-block ml-10 md:ml-16 cta-icon" src="./images/arrow-right.svg" />
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="md:col-6 text-center md:text-left mb-4">
+            <!-- Social Links -->
+            <ul
+            class="inline-flex flex-wrap justify-center md:justify-start gap-x-6"
+          >
+            <li
+              class="inline-block hover:opacity-75 transition-op duration-300"
+            >
+              <a href="https://www.linkedin.com/in/ethanhezek/" class="link">LinkedIn</a>
+            </li>
+            <li
+              class="inline-block hover:opacity-75 transition-op duration-300"
+            >
+              <a href="https://www.youtube.com/@Hezeeek" class="link">YouTube</a>
+            </li>
+            <li
+              class="inline-block hover:opacity-75 transition-op duration-300"
+            >
+              <a href="https://www.tiktok.com/@hezeeek" class="link">TikTok</a>
+            </li>
+          </ul>
+          </div>
+          <div class="md:col-6 text-center md:text-right mb-4">
+            <!-- Footer Menu -->
+            <ul
+              class="inline-flex flex-wrap justify-center md:justify-end gap-x-6"
+            >
+              <li
+                class="inline-block hover:opacity-75 transition-op duration-300"
+              >
+                <a href="./index.html" class="link">Home</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Copyright -->
+          <div class="md:col-6 text-center md:text-left mb-4 md:mb-0">
+            <p class="text-white/75">© 2025 HEZEKFX</p>
+          </div>
+          <!-- Developer Info -->
+          <div class="md:col-6 text-center md:text-right">
+            <p class="text-white/75">
+              All rights reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- ================= end of footer ================= -->
+
+    <!-- start of script -->
+    <script src="./plugins/aos/aos.js"></script>
+    <script src="./scripts/main.js"></script>
+  </body>
+</html>
