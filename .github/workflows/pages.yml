@@ -16,8 +16,11 @@ jobs:
       - name: Publish to GitHub Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload artifacts from source folder
+      - name: Upload a generic artifact (if you really need it)
         uses: actions/upload-artifact@v3
+        with:
+          name: my-build-artifact
+          path: source/
 
       - name: Upload artifacts from source folder
         uses: actions/upload-pages-artifact@v1
